@@ -3,18 +3,48 @@
 * 创建一个左侧菜单。你可以自定义显示图片和文字。
 
 ## Contents
-* [Custom left Menu 【自定义左侧菜单】] (#使用自定义左侧菜单)
+* [How To Use 【如何使用】] (#如何使用)
+	
+	* [CNMenuData.h](#CNMenuData.h)
+	* [CNLeftSideMenu.h](#CNLeftSideMenu.h)
+	
+* [参考](#参考)
 * [Waiting for add 【等待添加】](#等待添加)
 
 
 
-## <a id="使用自定义左侧菜单"></a>How To Use 【如何使用】
+## <a id="如何使用"></a>How To Use 【如何使用】
 
 * 手动导入：
     * 将`CNSideMenu`文件夹中的所有文件拽入项目中
     * 导入主头文件：`#import "CNLeftSideHeader.h"`
 
 ---
+## <a id="CNMenuData.h"></a>CNMenuData.h
+```
+@interface CNMenuData : NSObject
+/**
+ *  菜单文字
+ */
+@property (nonatomic, strong) NSString *title;
+/**
+ *  菜单选中图片
+ */
+@property (nonatomic, strong) UIImage *onImg;
+/**
+ *  菜单未选图片
+ */
+@property (nonatomic, strong) UIImage *offImg;
+
+@end
+```
+### 注意
+
+###  请使用CNMenuData 和 CNContentData 数据模型保存数据。
+
+### 你可以通过CNContentCell 类自定义cell，自定义cell之后，请对应修改CNContentData.h模型文件。
+---
+
 ## <a id="CNLeftSideMenu.h"></a>CNLeftSideMenu.h
 ```objective-c
 @protocol CNLeftSideMenuDelegate <NSObject>
@@ -76,28 +106,7 @@
 @end
 ```
 ---
-## <a id="CNMenuData.h"></a>CNMenuData.h
-```
-@interface CNMenuData : NSObject
-/**
- *  菜单文字
- */
-@property (nonatomic, strong) NSString *title;
-/**
- *  菜单选中图片
- */
-@property (nonatomic, strong) UIImage *onImg;
-/**
- *  菜单未选图片
- */
-@property (nonatomic, strong) UIImage *offImg;
 
-@end
-```
-### 注意
-
-###  请使用CNMenuData 和 CNContentData 数据模型保存数据。
----
 ## <a id="参考"></a>参考
 
 
@@ -156,3 +165,6 @@ CNLeftSideMenu *menu = [[CNLeftSideMenu alloc] initWithFrame:CGRectMake(0, 64, s
 ##<a id="等待添加"></a>等待添加
 * 保留所有内容，以分区的形式展现
 * 其他不同的视图显示内容。。。
+
+
+#### ios 开发新人一枚，因公司需使用该类型的菜单，并网上大多都是抽屉效果菜单，
