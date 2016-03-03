@@ -66,4 +66,6 @@ typedef NS_ENUM(NSInteger, CNLeftMenuStyle) {
 //创建视图
 + (instancetype)createMenuViewWithStyle:(CNLeftMenuStyle)menuStyle frame:(CGRect)frame;
 
+
+- (void)implementationDelegateAndDataSource;
 @end
