@@ -117,7 +117,7 @@ CNLeftSideMenu *menu = [[CNLeftSideMenu alloc] initWithFrame:CGRectMake(0, 64, s
     [self.view addSubview: menu];
 
 ```
-![369*661](https://github.com/SpectatorNan/CNLeftSideMenu/blob/master/material/imageAndText.png)
+![](https://github.com/SpectatorNan/CNLeftSideMenu/blob/master/material/imageAndText.png?imageView/2/w/619/q/90)
 
 * 菜单只显示图片
 
