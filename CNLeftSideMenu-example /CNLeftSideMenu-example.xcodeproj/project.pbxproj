@@ -23,6 +23,8 @@
 		767B6CA51C7EDEBB00838AF6 /* CNMenuData.m in Sources */ = {isa = PBXBuildFile; fileRef = 767B6CA01C7EDEBB00838AF6 /* CNMenuData.m */; };
 		767B6CA81C7EDF3200838AF6 /* UIView+Rect.m in Sources */ = {isa = PBXBuildFile; fileRef = 767B6CA71C7EDF3200838AF6 /* UIView+Rect.m */; };
 		76C084FD1C8576D900E0D8B9 /* CNLeftCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C084FC1C8576D900E0D8B9 /* CNLeftCollectionView.m */; };
+		76C085001C881B3800E0D8B9 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C084FF1C881B3800E0D8B9 /* Reveal.framework */; };
+		76C085021C881B4500E0D8B9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C085011C881B4500E0D8B9 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		76C084FB1C8576D900E0D8B9 /* CNLeftCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNLeftCollectionView.h; sourceTree = "<group>"; };
 		76C084FC1C8576D900E0D8B9 /* CNLeftCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNLeftCollectionView.m; sourceTree = "<group>"; };
 		76C084FE1C880F0D00E0D8B9 /* CNLeftSideHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNLeftSideHeader.h; sourceTree = "<group>"; };
+		76C084FF1C881B3800E0D8B9 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		76C085011C881B4500E0D8B9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76C085021C881B4500E0D8B9 /* libz.tbd in Frameworks */,
+				76C085001C881B3800E0D8B9 /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +149,9 @@
 		767B6C631C7EDEA400838AF6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				76C084FF1C881B3800E0D8B9 /* Reveal.framework */,
 				767B6C641C7EDEA400838AF6 /* main.m */,
+				76C085011C881B4500E0D8B9 /* libz.tbd */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

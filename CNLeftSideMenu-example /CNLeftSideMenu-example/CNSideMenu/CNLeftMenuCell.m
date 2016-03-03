@@ -49,7 +49,9 @@
 - (instancetype)ShowTextInMenuCell:(CNLeftMenuCell *)cell withWidth:(CGFloat)width {
     
     UILabel *titleL = [[UILabel alloc] init];
+    
     [titleL RectMakeCenterVerticalIn:cell.contentView marginLeft:5 width:width-10 height:cell.contentView.bounds.size.height];
+    titleL.textAlignment = NSTextAlignmentCenter;
     self.titleL = titleL;
     [cell.contentView addSubview:titleL];
  

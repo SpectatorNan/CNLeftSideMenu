@@ -7,12 +7,13 @@
 //
 
 #import "ViewController.h"
-#import "CNContentData.h"
-#import "CNMenuData.h"
-#import "CNLeftSideMenu.h"
-#import "CNLeftCollectionView.h"
+//#import "CNContentData.h"
+//#import "CNMenuData.h"
+//#import "CNLeftSideMenu.h"
+//#import "CNLeftCollectionView.h"
+#import "CNLeftSideHeader.h"
 
-@interface ViewController ()<CNLeftSideMenuDelegate,CNLeftSideMenuDataSource>
+@interface ViewController ()<CNLeftSideMenuDelegate>
 
 @property (nonatomic, strong) NSArray *titles;
 
@@ -26,7 +27,9 @@
 @end
 
 @implementation ViewController
-
+/**
+ *   模拟内容1
+ */
 - (NSArray *)content1 {
     
     CNContentData *data = [[CNContentData alloc] init];
@@ -38,7 +41,9 @@
     }
     return _content1;
 }
-
+/**
+ *   模拟内容2
+ */
 - (NSArray *)content2 {
     CNContentData *data = [[CNContentData alloc] init];
     data.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://img5.duitang.com/uploads/item/201601/06/20160106202904_NjC8Z.jpeg"]]];
@@ -50,7 +55,9 @@
     }
     return _content2;
 }
-
+/**
+ *   模拟内容3
+ */
 - (NSArray *)content3 {
     CNContentData *data = [[CNContentData alloc] init];
     data.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://img5.duitang.com/uploads/item/201509/12/20150912085729_MwHrc.png"]]];
@@ -62,7 +69,9 @@
     }
     return _content3;
 }
-
+/**
+ *   模拟菜单
+ */
 - (NSArray *)titles {
     if (!_titles) {
         
@@ -115,17 +124,23 @@
     self.view.backgroundColor = [UIColor lightGrayColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    /**
+     创建菜单视图
+     */
     CNLeftSideMenu *menu = [[CNLeftSideMenu alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height)];
     menu.delegate = self;
-    menu.dataSource = self;
+    
     
 
-    [menu createMenuWithMenusData:self.titles contentsData:self.content1 defaultIndex:self.index andMenuViewStyle:CNLeftMenuStyleImageAndText];
+    [menu createMenuWithMenusData:self.titles contentsData:self.content1 defaultIndex:self.index andMenuViewStyle:CNLeftMenuStyleOnlyImage];
     [self.view addSubview: menu];
     
     
 }
-
+/**
+ *  CNLeftSideMenuDelegate
+ *
+ */
 - (void)menu:(CNLeftSideMenu *)menu didSelectMenuRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row%3 == 0) {

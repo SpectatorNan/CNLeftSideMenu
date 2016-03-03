@@ -12,5 +12,5 @@
 #import "CNContentData.h"
 #import "CNLeftMenuView.h"
 #import "CNLeftMenuCell.h"
-#import "CNLeftMenuData.h"
+#import "CNMenuData.h"
 #import "CNLeftCollectionView.h"

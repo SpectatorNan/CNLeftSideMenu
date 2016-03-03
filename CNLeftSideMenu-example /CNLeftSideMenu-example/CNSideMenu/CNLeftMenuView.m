@@ -9,7 +9,7 @@
 #import "CNLeftMenuView.h"
 #import "CNLeftMenuCell.h"
 #import "CNMenuData.h"
-#import "UIColor+rgb.h"
+
 
 
 @interface CNLeftMenuView ()<UITableViewDataSource, UITableViewDelegate>
@@ -51,19 +51,12 @@
     self.width = self.bounds.size.width;
 
     
-    
-
-    
-    
-    
     UITableView *leftMenu = [[UITableView alloc] initWithFrame:self.bounds];
     leftMenu.dataSource = self;
     leftMenu.delegate = self;
     leftMenu.bounces = NO;
 
-    
-   
-    
+
     leftMenu.backgroundColor = [UIColor whiteColor];
     if (self.menuDatas.count > 0 ){
         [leftMenu selectRowAtIndexPath:self.menuIndexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
@@ -138,7 +131,13 @@
         
         cell = [CNLeftMenuCell ShowTextInMenuView:tableView withWidth:self.width];
         cell.titleL.text = data.title;
-
+        if (indexPath == self.menuIndexPath) {
+            cell.titleL.textColor = SelectColor;
+            
+        } else {
+            cell.titleL.textColor = unSelectColor;
+            
+        }
     }
     
     cell.backgroundColor = [UIColor whiteColor];
