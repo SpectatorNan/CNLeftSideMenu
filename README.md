@@ -117,6 +117,7 @@ CNLeftSideMenu *menu = [[CNLeftSideMenu alloc] initWithFrame:CGRectMake(0, 64, s
     [self.view addSubview: menu];
 
 ```
+![](https://github.com/SpectatorNan/CNLeftSideMenu/blob/master/material/imageAndText.png)
 
 * 菜单只显示图片
 
@@ -132,6 +133,8 @@ CNLeftSideMenu *menu = [[CNLeftSideMenu alloc] initWithFrame:CGRectMake(0, 64, s
     [self.view addSubview: menu];
 
 ```
+![](https://github.com/SpectatorNan/CNLeftSideMenu/blob/master/material/image.png)
+
 * 菜单只显示文字
 
 
@@ -147,7 +150,7 @@ CNLeftSideMenu *menu = [[CNLeftSideMenu alloc] initWithFrame:CGRectMake(0, 64, s
     [self.view addSubview: menu];
 
 ```
-
+![](https://github.com/SpectatorNan/CNLeftSideMenu/blob/master/material/text.png)
 ---
 
 ##<a id="等待添加"></a>等待添加
