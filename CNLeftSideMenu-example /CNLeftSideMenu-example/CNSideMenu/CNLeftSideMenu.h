@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CNLeftMenuView.h"
 
 @class CNLeftSideMenu;
 @class CNLeftCollectionView;
+
 
 @protocol CNLeftSideMenuDataSource <NSObject>
 
@@ -38,7 +39,6 @@
 - (UIColor*)colorOfMenuSelectTextInMenuView;
 - (UIColor*)colorOfMenuUnSelectTextInMenuView;
 
-
 @end
 
 
@@ -58,5 +58,5 @@
 - (void)reloadData;
 // the default row is 0
 // 默认第0行
-- (void)createMenuWithMenusData:(NSArray *)menus defaultIndex:(NSIndexPath*)menuIndex contentsData:(NSArray *)contents;
+- (void)createMenuWithMenusData:(NSArray *)menus contentsData:(NSArray *)contents defaultIndex:(NSIndexPath*)menuIndex andMenuViewStyle:(CNLeftMenuStyle)menuStyle;
 @end

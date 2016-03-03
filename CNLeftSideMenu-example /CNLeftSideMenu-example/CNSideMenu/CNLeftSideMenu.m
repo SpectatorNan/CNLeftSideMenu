@@ -12,7 +12,6 @@
 #import "CNMenuData.h"
 #import "CNContentData.h"
 #import "UIColor+rgb.h"
-#import "CNLeftMenuView.h"
 #import "CNLeftCollectionView.h"
 
 
@@ -51,7 +50,7 @@ static NSString *contentCellID = @"contentCell";
     [self.collectionRefreshView reloadData];
 }
 
-- (void)createMenuWithMenusData:(NSArray *)menus defaultIndex:(NSIndexPath *)menuIndex contentsData:(NSArray *)contents {
+- (void)createMenuWithMenusData:(NSArray *)menus contentsData:(NSArray *)contents defaultIndex:(NSIndexPath*)menuIndex andMenuViewStyle:(CNLeftMenuStyle)menuStyle {
     self.titles = menus;
     self.contents = contents;
     self.menuIndex = menuIndex;
@@ -68,7 +67,7 @@ static NSString *contentCellID = @"contentCell";
     if ([self.delegate respondsToSelector:@selector(colorOfMenuUnSelectTextInMenuView)]) {
     self.menuText_UnSelectColor = [self.delegate colorOfMenuUnSelectTextInMenuView];
     }
-    [self createMenuViewWithStyle:CNLeftMenuStyleImageAndText];
+    [self createMenuViewWithStyle:menuStyle];
 
     
     [self createCollectionView];

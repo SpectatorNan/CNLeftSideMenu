@@ -120,8 +120,7 @@
     menu.dataSource = self;
     
 
-    
-    [menu createMenuWithMenusData:self.titles defaultIndex:self.index contentsData:self.content1];
+    [menu createMenuWithMenusData:self.titles contentsData:self.content1 defaultIndex:self.index andMenuViewStyle:CNLeftMenuStyleImageAndText];
     [self.view addSubview: menu];
     
     
