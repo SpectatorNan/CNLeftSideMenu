@@ -54,9 +54,11 @@ static NSString *contentCellID = @"contentCell";
     self.menuIndex = menuIndex;
     
     self.menuWidth = [UIScreen mainScreen].bounds.size.width*0.2;
+    if ([self.delegate respondsToSelector:@selector(widthForMenuView)]) {
+        self.menuWidth = [self.delegate widthForMenuView];
+    }
 
-
-    [self createMenuViewWithStyle:CNLeftMenuStyleOnlyImage];
+    [self createMenuViewWithStyle:CNLeftMenuStyleImageAndText];
 
     
     [self createCollectionView];

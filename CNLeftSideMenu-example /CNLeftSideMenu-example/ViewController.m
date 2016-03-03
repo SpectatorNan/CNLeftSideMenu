@@ -127,7 +127,6 @@
     
 }
 
-
 - (void)menu:(CNLeftSideMenu *)menu didSelectMenuRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row%3 == 0) {

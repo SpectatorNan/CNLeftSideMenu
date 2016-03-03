@@ -21,7 +21,12 @@
 
 
 @optional
+
+// Called after the user changes the row.
+// 通知你点击了菜单栏的哪一行
 - (void)menu:(CNLeftSideMenu *)menu didSelectMenuRowAtIndexPath:(NSIndexPath *)indexPath;
+// the default width is 0.2 of screen
+// 默认宽度是屏幕宽度的0.2
 - (CGFloat)widthForMenuView;
 @end
 

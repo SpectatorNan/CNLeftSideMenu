@@ -20,8 +20,8 @@ typedef NS_ENUM(NSInteger, CNLeftMenuStyle) {
 
 
 @protocol CNLeftMenuDataSource <NSObject>
-
-@optional
+// The number of rows menu
+// 菜单行数
 - (NSInteger)numberOfRowInMenuView:(CNLeftMenuView*)menuView;
 
 
@@ -48,9 +48,6 @@ typedef NS_ENUM(NSInteger, CNLeftMenuStyle) {
 // 默认第0行
 - (NSIndexPath*)rowOfDefaultSelected;
 
-// the default width is 0.2 of screen
-// 默认宽度是屏幕宽度的0.2
-- (CGFloat)widthOfMenuView;
 @end
 
 @interface CNLeftMenuView : UIView
