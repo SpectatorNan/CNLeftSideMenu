@@ -37,7 +37,7 @@ typedef NS_ENUM(NSInteger, CNLeftMenuStyle) {
 
 // show or not show underline
 // 是否显示下划线
-- (BOOL)isShowMenuUnderline;
+- (BOOL)isShowUnderline;
 
 // the default selectColor is red, or unSelectColor is black
 // 默认选中红色，未选中黑色

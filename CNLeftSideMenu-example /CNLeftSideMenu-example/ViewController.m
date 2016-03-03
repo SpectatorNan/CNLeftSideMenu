@@ -144,8 +144,6 @@
 
         menu.contents = self.content3;
 
-
-        
         [menu reloadData];
     } else {
         
@@ -157,4 +155,18 @@
 }
 
 
+// 设置菜单宽度
+- (CGFloat)widthForMenuView {
+    return 80;
+}
+
+// 设置选中菜单文本颜色
+- (UIColor *)colorOfMenuSelectTextInMenuView {
+    return [UIColor purpleColor];
+}
+
+// 设置未选中菜单文本颜色
+- (UIColor *)colorOfMenuUnSelectTextInMenuView {
+    return [UIColor greenColor];
+}
 @end
