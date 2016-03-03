@@ -20,8 +20,8 @@ typedef NS_ENUM(NSInteger, CNLeftMenuStyle) {
 
 
 @protocol CNLeftMenuDataSource <NSObject>
-
-@optional
+// The number of rows menu
+// 菜单行数
 - (NSInteger)numberOfRowInMenuView:(CNLeftMenuView*)menuView;
 
 
@@ -37,7 +37,7 @@ typedef NS_ENUM(NSInteger, CNLeftMenuStyle) {
 
 // show or not show underline
 // 是否显示下划线
-- (BOOL)isShowMenuUnderline;
+- (BOOL)isShowUnderline;
 
 // the default selectColor is red, or unSelectColor is black
 // 默认选中红色，未选中黑色
@@ -48,9 +48,6 @@ typedef NS_ENUM(NSInteger, CNLeftMenuStyle) {
 // 默认第0行
 - (NSIndexPath*)rowOfDefaultSelected;
 
-// the default width is 0.2 of screen
-// 默认宽度是屏幕宽度的0.2
-- (CGFloat)widthOfMenuView;
 @end
 
 @interface CNLeftMenuView : UIView
@@ -66,4 +63,6 @@ typedef NS_ENUM(NSInteger, CNLeftMenuStyle) {
 //创建视图
 + (instancetype)createMenuViewWithStyle:(CNLeftMenuStyle)menuStyle frame:(CGRect)frame;
 
+
+- (void)implementationDelegateAndDataSource;
 @end

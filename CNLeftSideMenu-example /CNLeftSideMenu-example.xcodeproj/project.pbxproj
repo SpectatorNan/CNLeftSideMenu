@@ -22,7 +22,6 @@
 		767B6CA41C7EDEBB00838AF6 /* CNLeftSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 767B6C9E1C7EDEBB00838AF6 /* CNLeftSideMenu.m */; };
 		767B6CA51C7EDEBB00838AF6 /* CNMenuData.m in Sources */ = {isa = PBXBuildFile; fileRef = 767B6CA01C7EDEBB00838AF6 /* CNMenuData.m */; };
 		767B6CA81C7EDF3200838AF6 /* UIView+Rect.m in Sources */ = {isa = PBXBuildFile; fileRef = 767B6CA71C7EDF3200838AF6 /* UIView+Rect.m */; };
-		767B6CAB1C7EDFF400838AF6 /* UIColor+rgb.m in Sources */ = {isa = PBXBuildFile; fileRef = 767B6CAA1C7EDFF400838AF6 /* UIColor+rgb.m */; };
 		76C084FD1C8576D900E0D8B9 /* CNLeftCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C084FC1C8576D900E0D8B9 /* CNLeftCollectionView.m */; };
 /* End PBXBuildFile section */
 
@@ -74,10 +73,9 @@
 		767B6CA01C7EDEBB00838AF6 /* CNMenuData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNMenuData.m; sourceTree = "<group>"; };
 		767B6CA61C7EDF3200838AF6 /* UIView+Rect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Rect.h"; sourceTree = "<group>"; };
 		767B6CA71C7EDF3200838AF6 /* UIView+Rect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Rect.m"; sourceTree = "<group>"; };
-		767B6CA91C7EDFF400838AF6 /* UIColor+rgb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+rgb.h"; sourceTree = "<group>"; };
-		767B6CAA1C7EDFF400838AF6 /* UIColor+rgb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+rgb.m"; sourceTree = "<group>"; };
 		76C084FB1C8576D900E0D8B9 /* CNLeftCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNLeftCollectionView.h; sourceTree = "<group>"; };
 		76C084FC1C8576D900E0D8B9 /* CNLeftCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNLeftCollectionView.m; sourceTree = "<group>"; };
+		76C084FE1C880F0D00E0D8B9 /* CNLeftSideHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNLeftSideHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,10 +183,9 @@
 				767B6CA01C7EDEBB00838AF6 /* CNMenuData.m */,
 				767B6CA61C7EDF3200838AF6 /* UIView+Rect.h */,
 				767B6CA71C7EDF3200838AF6 /* UIView+Rect.m */,
-				767B6CA91C7EDFF400838AF6 /* UIColor+rgb.h */,
-				767B6CAA1C7EDFF400838AF6 /* UIColor+rgb.m */,
 				76C084FB1C8576D900E0D8B9 /* CNLeftCollectionView.h */,
 				76C084FC1C8576D900E0D8B9 /* CNLeftCollectionView.m */,
+				76C084FE1C880F0D00E0D8B9 /* CNLeftSideHeader.h */,
 			);
 			path = CNSideMenu;
 			sourceTree = "<group>";
@@ -324,7 +321,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				767B6CA31C7EDEBB00838AF6 /* CNLeftMenuCell.m in Sources */,
-				767B6CAB1C7EDFF400838AF6 /* UIColor+rgb.m in Sources */,
 				767B6C6B1C7EDEA400838AF6 /* ViewController.m in Sources */,
 				767B6CA21C7EDEBB00838AF6 /* CNContentData.m in Sources */,
 				76C084FD1C8576D900E0D8B9 /* CNLeftCollectionView.m in Sources */,

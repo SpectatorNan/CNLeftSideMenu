@@ -12,7 +12,6 @@
 #import "CNMenuData.h"
 #import "CNContentData.h"
 #import "UIColor+rgb.h"
-#import "CNLeftMenuView.h"
 #import "CNLeftCollectionView.h"
 
 
@@ -29,7 +28,10 @@
 
 @property (nonatomic,assign) CGFloat  menuWidth;
 
+@property (nonatomic, strong) CNLeftCollectionView *collectionContentView;
 
+@property (nonatomic, strong) UIColor *menuText_SelectColor;
+@property (nonatomic, strong) UIColor *menuText_UnSelectColor;
 @end
 
 static NSString *contentCellID = @"contentCell";
@@ -48,23 +50,36 @@ static NSString *contentCellID = @"contentCell";
     [self.collectionRefreshView reloadData];
 }
 
-- (void)createMenuWithMenusData:(NSArray *)menus defaultIndex:(NSIndexPath *)menuIndex contentsData:(NSArray *)contents {
+- (void)createMenuWithMenusData:(NSArray *)menus contentsData:(NSArray *)contents defaultIndex:(NSIndexPath*)menuIndex andMenuViewStyle:(CNLeftMenuStyle)menuStyle {
     self.titles = menus;
     self.contents = contents;
     self.menuIndex = menuIndex;
     
     self.menuWidth = [UIScreen mainScreen].bounds.size.width*0.2;
-
-
-    [self createMenuViewWithStyle:CNLeftMenuStyleOnlyImage];
+    if ([self.delegate respondsToSelector:@selector(widthForMenuView)]) {
+        self.menuWidth = [self.delegate widthForMenuView];
+    }
+    self.menuText_SelectColor = [UIColor redColor];
+    if ([self.delegate respondsToSelector:@selector(colorOfMenuSelectTextInMenuView)]) {
+    self.menuText_SelectColor = [self.delegate colorOfMenuSelectTextInMenuView];
+    }
+    self.menuText_UnSelectColor = [UIColor blackColor];
+    if ([self.delegate respondsToSelector:@selector(colorOfMenuUnSelectTextInMenuView)]) {
+    self.menuText_UnSelectColor = [self.delegate colorOfMenuUnSelectTextInMenuView];
+    }
+    [self createMenuViewWithStyle:menuStyle];
 
     
     [self createCollectionView];
 }
 
+- (UIColor *)colorOfUnSelectTextInMenuView {
+    return self.menuText_UnSelectColor;
+}
 
-
-
+- (UIColor *)colorOfSelectTextInMenuView {
+    return self.menuText_SelectColor;
+}
 
 - (void)createMenuViewWithStyle:(CNLeftMenuStyle)menuStyle {
     
@@ -75,7 +90,7 @@ static NSString *contentCellID = @"contentCell";
     menuView.delegate = self; 
     menuView.menuDatas = self.titles;
 
-    
+    [menuView implementationDelegateAndDataSource];
     [self addSubview:menuView];
 }
 

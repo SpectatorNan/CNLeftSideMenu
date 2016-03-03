@@ -12,10 +12,12 @@
 #import "UIColor+rgb.h"
 
 
-@interface CNLeftMenuView ()<UITableViewDataSource, UITableViewDelegate, CNLeftMenuDelegate, CNLeftMenuDataSource>
-{
+@interface CNLeftMenuView ()<UITableViewDataSource, UITableViewDelegate>
+{ 
     UIColor *SelectColor;
     UIColor *unSelectColor;
+    
+    BOOL showLine;
 }
 @property (nonatomic, strong) NSIndexPath *menuIndexPath;
 
@@ -50,20 +52,7 @@
 
     
     
-    SelectColor = [UIColor redColor];
-    if ([self.delegate respondsToSelector:@selector(colorOfSelectTextInMenuView)]) {
-        SelectColor = [self.delegate colorOfSelectTextInMenuView];
-    }
 
-    unSelectColor = [UIColor blackColor];
-    if ([self.delegate respondsToSelector:@selector(colorOfUnSelectTextInMenuView)]) {
-        unSelectColor = [self.delegate colorOfUnSelectTextInMenuView];
-    }
-    
-    self.menuIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    if ([self.delegate rowOfDefaultSelected]) {
-        self.menuIndexPath = [self.delegate rowOfDefaultSelected];
-    }
     
     
     
@@ -82,6 +71,29 @@
     [self addSubview:leftMenu];
 
     return self;
+}
+
+- (void)implementationDelegateAndDataSource {
+    
+
+    if ([self.delegate respondsToSelector:@selector(colorOfSelectTextInMenuView)]) {
+        SelectColor = [self.delegate colorOfSelectTextInMenuView];
+    }
+    
+
+    if ([self.delegate respondsToSelector:@selector(colorOfUnSelectTextInMenuView)]) {
+        unSelectColor = [self.delegate colorOfUnSelectTextInMenuView];
+    }
+    
+    self.menuIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    if ([self.delegate respondsToSelector:@selector(rowOfDefaultSelected)]) {
+        self.menuIndexPath = [self.delegate rowOfDefaultSelected];
+    }
+    
+     showLine = NO;
+    if ([self.delegate respondsToSelector:@selector(isShowUnderline)]) {
+        showLine = [self.delegate isShowUnderline];
+    }
 }
 
 
@@ -131,10 +143,7 @@
     
     cell.backgroundColor = [UIColor whiteColor];
     
-    BOOL showLine = NO;
-    if ([self.delegate respondsToSelector:@selector(isShowMenuUnderline)]) {
-        showLine = [self.delegate isShowMenuUnderline];
-    }
+
     if (!showLine) {
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     } else {
