@@ -116,7 +116,12 @@ static NSString *contentCellID = @"contentCell";
 }
 
 
+- (void)didSelectedItemsAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.delegate collectionContentView:self.collectionContentView didSelectContentItemAtIndexPath:indexPath];
+    
 
+}
 
 
 @end

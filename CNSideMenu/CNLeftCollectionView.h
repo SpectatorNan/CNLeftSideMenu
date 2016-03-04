@@ -33,6 +33,7 @@ typedef NS_ENUM(NSInteger, CNCollectionStyle) {
 @optional
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 - (UIEdgeInsets)insetForSectionAtIndex:(NSInteger)section;
+- (void)didSelectedItemsAtIndexPath:(NSIndexPath*)indexPath;
 @end
 
 @interface CNLeftCollectionView : UIView

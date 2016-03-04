@@ -21,7 +21,6 @@
 
 
 @optional
-
 /**
  * Called after the user changes the row.
  * 通知你点击了菜单栏的哪一行 
@@ -46,6 +45,8 @@
 - (UIColor*)colorOfMenuSelectTextInMenuView;
 - (UIColor*)colorOfMenuUnSelectTextInMenuView;
 
+
+- (void)collectionContentView:(CNLeftCollectionView*)collectionView didSelectContentItemAtIndexPath:(NSIndexPath*)indexPath;
 @end
 
 

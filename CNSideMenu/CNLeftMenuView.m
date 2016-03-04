@@ -199,7 +199,7 @@
         }
     }
     
-    NSLog(@"select left menu at index: %ld with name is %@", indexPath.row, newData.title);
+//    NSLog(@"select left menu at index: %ld with name is %@", indexPath.row, newData.title);
     if ([self.delegate respondsToSelector:@selector(menu:didSelectRowAtIndexPath:)]) {
         [self.delegate menu:self didSelectRowAtIndexPath:indexPath];
     }

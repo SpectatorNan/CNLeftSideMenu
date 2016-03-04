@@ -162,6 +162,7 @@
     } else {
         
     }
+    NSLog(@"select left menu at index: %ld", indexPath.row);
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -182,5 +183,9 @@
 // 设置未选中菜单文本颜色
 - (UIColor *)colorOfMenuUnSelectTextInMenuView {
     return [UIColor greenColor];
+}
+
+- (void)collectionContentView:(CNLeftCollectionView *)collectionView didSelectContentItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"select collectionView index at %ld", indexPath.row);
 }
 @end
