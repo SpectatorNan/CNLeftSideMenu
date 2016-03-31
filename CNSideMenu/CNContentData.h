@@ -11,9 +11,13 @@
 
 
 @interface CNContentData : NSObject
-
-@property (nonatomic, strong) UIImage *image;
-
+/**
+ *   图片链接地址
+ */
+@property (nonatomic, strong) NSString *ImgUrlStr;
+/**
+ *  标题
+ */
 @property (nonatomic, strong) NSString *desc;
 
 

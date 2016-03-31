@@ -11,17 +11,33 @@
 
 @class CNLeftMenuView;
 
-
+/**
+ *  菜单风格
+ */
 typedef NS_ENUM(NSInteger, CNLeftMenuStyle) {
+    /**
+     *  只显示文本
+     */
     CNLeftMenuStyleOnlyText = 1,
-    CNLeftMenuStyleOnlyImage,   // show Image
+    /**
+     *  只显示图片
+     */
+    CNLeftMenuStyleOnlyImage,
+    /**
+     *  显示文本和图片
+     */
     CNLeftMenuStyleImageAndText    // show Image and Text
 };
 
 
 @protocol CNLeftMenuDataSource <NSObject>
-// The number of rows menu
-// 菜单行数
+/**
+ *  设置菜单行数
+ *
+ *  @param menuView 菜单视图
+ *
+ *  @return 菜单行数
+ */
 - (NSInteger)numberOfRowInMenuView:(CNLeftMenuView*)menuView;
 
 
@@ -31,21 +47,28 @@ typedef NS_ENUM(NSInteger, CNLeftMenuStyle) {
 @protocol CNLeftMenuDelegate <NSObject>
 
 @optional
-// Called after the user changes the row.
-// 通知你点击了菜单栏的哪一行
+/**
+ *  点击菜单回调
+ *
+ *  @param menu      菜单视图
+ *  @param indexPath 菜单的indexpath
+ */
 - (void)menu:(CNLeftMenuView*)menu didSelectRowAtIndexPath:(NSIndexPath*)indexPath;
 
-// show or not show underline
-// 是否显示下划线
+/**
+ *  是否显示分割线
+ */
 - (BOOL)isShowUnderline;
 
-// the default selectColor is red, or unSelectColor is black
-// 默认选中红色，未选中黑色
+/**
+ *  设置菜单文本颜色
+ */
 - (UIColor*)colorOfSelectTextInMenuView;
 - (UIColor*)colorOfUnSelectTextInMenuView;
 
-// the default row is 0
-// 默认第0行
+/**
+ *  默认选中行数
+ */
 - (NSIndexPath*)rowOfDefaultSelected;
 
 @end

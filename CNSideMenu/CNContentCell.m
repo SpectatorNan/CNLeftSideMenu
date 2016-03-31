@@ -7,6 +7,7 @@
 //
 
 #import "CNContentCell.h"
+#import "UIImageView+WebCache.h"
 
 @implementation CNContentCell
 
@@ -29,7 +30,7 @@
 
 - (void)setDataForCell {
     
-    self.imgView.image = self.data.image;
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:self.data.ImgUrlStr]];
     
     self.descLabel.text = self.data.desc;
 }

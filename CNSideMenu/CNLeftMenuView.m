@@ -110,10 +110,10 @@
         
         if (indexPath == self.menuIndexPath) {
             cell.titleL.textColor = SelectColor;
-            cell.titleImgV.image = data.onImg;
+            cell.titleImgV.image = [UIImage imageNamed: data.onImgName];
         } else {
             cell.titleL.textColor = unSelectColor;
-            cell.titleImgV.image = data.offImg;
+            cell.titleImgV.image = [UIImage imageNamed: data.offImgName];
             
         }
         cell.titleL.text = data.title;
@@ -121,10 +121,10 @@
         cell = [CNLeftMenuCell ShowImageInMenuView:tableView withWidth:self.width];
         if (indexPath == self.menuIndexPath) {
 
-            cell.titleImgV.image = data.onImg;
+            cell.titleImgV.image = [UIImage imageNamed: data.onImgName];
         } else {
 
-            cell.titleImgV.image = data.offImg;
+            cell.titleImgV.image = [UIImage imageNamed: data.offImgName];
             
         }
     } else if (self.menuStyle == CNLeftMenuStyleOnlyText) {
@@ -165,11 +165,11 @@
     if (indexPath != self.menuIndexPath) {
         CNLeftMenuCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
         newCell.titleL.textColor = SelectColor;
-        newCell.titleImgV.image = newData.onImg;
+        newCell.titleImgV.image = [UIImage imageNamed: newData.onImgName];
         
         CNLeftMenuCell *oldCell = [tableView cellForRowAtIndexPath: self.menuIndexPath];
         oldCell.titleL.textColor = unSelectColor;
-        oldCell.titleImgV.image = oldData.offImg;
+        oldCell.titleImgV.image = [UIImage imageNamed: oldData.offImgName];
         
         self.menuIndexPath = indexPath;
     }
@@ -177,11 +177,11 @@
         if (indexPath != self.menuIndexPath) {
             CNLeftMenuCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
             
-            newCell.titleImgV.image = newData.onImg;
+            newCell.titleImgV.image = [UIImage imageNamed: newData.onImgName];
             
             CNLeftMenuCell *oldCell = [tableView cellForRowAtIndexPath: self.menuIndexPath];
            
-            oldCell.titleImgV.image = oldData.offImg;
+            oldCell.titleImgV.image = [UIImage imageNamed: oldData.offImgName];
             
             self.menuIndexPath = indexPath;
         }

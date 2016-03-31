@@ -12,6 +12,7 @@
 //#import "CNLeftSideMenu.h"
 //#import "CNLeftCollectionView.h"
 #import "CNLeftSideHeader.h"
+#import <CoreImage/CoreImage.h>
 
 @interface ViewController ()<CNLeftSideMenuDelegate>
 
@@ -33,7 +34,7 @@
 - (NSArray *)content1 {
     
     CNContentData *data = [[CNContentData alloc] init];
-    data.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://e.hiphotos.baidu.com/image/h%3D200/sign=a0901680a3c27d1eba263cc42bd4adaf/b21bb051f819861842d54ba04ded2e738bd4e600.jpg"]]];
+    data.ImgUrlStr = @"http://e.hiphotos.baidu.com/image/h%3D200/sign=a0901680a3c27d1eba263cc42bd4adaf/b21bb051f819861842d54ba04ded2e738bd4e600.jpg";
     data.desc = @"测试1测试";
     if (!_content1) {
         NSArray *arr = @[data,data];
@@ -46,7 +47,7 @@
  */
 - (NSArray *)content2 {
     CNContentData *data = [[CNContentData alloc] init];
-    data.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://img5.duitang.com/uploads/item/201601/06/20160106202904_NjC8Z.jpeg"]]];
+    data.ImgUrlStr = @"http://img5.duitang.com/uploads/item/201601/06/20160106202904_NjC8Z.jpeg";
     data.desc = @"测试2测试";
     if (!_content2) {
         NSArray *arr = @[data,data,data];
@@ -60,7 +61,7 @@
  */
 - (NSArray *)content3 {
     CNContentData *data = [[CNContentData alloc] init];
-    data.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://img5.duitang.com/uploads/item/201509/12/20150912085729_MwHrc.png"]]];
+    data.ImgUrlStr = @"http://img5.duitang.com/uploads/item/201509/12/20150912085729_MwHrc.png";
     data.desc = @"测试3测试";
     if (!_content3) {
         NSArray *arr = @[data];
@@ -77,38 +78,38 @@
         
         CNMenuData *data1 = [CNMenuData new];
         data1.title = @"111";
-        data1.offImg = [UIImage imageNamed:@"arrow_left_alt2"];
-        data1.onImg = [UIImage imageNamed:@"arrow_right_alt2"];
+        data1.offImgName = @"arrow_left_alt2";
+        data1.onImgName = @"arrow_right_alt2";
         
         CNMenuData *data2 = [CNMenuData new];
         data2.title = @"222";
-        data2.offImg = [UIImage imageNamed:@"arrow_up_alt1"];
-        data2.onImg = [UIImage imageNamed:@"arrow_up_alt2"];
+        data2.offImgName = @"arrow_up_alt1";
+        data2.onImgName = @"arrow_up_alt2";
         
         CNMenuData *data3 = [CNMenuData new];
         data3.title = @"333";
-        data3.offImg = [UIImage imageNamed:@"award_stroke_16"];
-        data3.onImg = [UIImage imageNamed:@"award_fill_16"];
+        data3.offImgName = @"award_stroke_16";
+        data3.onImgName = @"award_fill_16";
         
         CNMenuData *data4 = [CNMenuData new];
         data4.title = @"444";
-        data4.offImg = [UIImage imageNamed:@"battery_empty_16"];
-        data4.onImg = [UIImage imageNamed:@"battery_full_16"];
+        data4.offImgName = @"battery_empty_16";
+        data4.onImgName = @"battery_full_16";
         
         CNMenuData *data5 = [CNMenuData new];
         data5.title = @"555";
-        data5.offImg = [UIImage imageNamed:@"book_28"];
-        data5.onImg = [UIImage imageNamed:@"book_alt"];
+        data5.offImgName = @"book_28";
+        data5.onImgName = @"book_alt";
         
         CNMenuData *data6 = [CNMenuData new];
         data6.title = @"666";
-        data6.offImg = [UIImage imageNamed:@"cloud_upload"];
-        data6.onImg = [UIImage imageNamed:@"cloud_download"];
+        data6.offImgName = @"cloud_upload";
+        data6.onImgName = @"cloud_download";
         
         CNMenuData *data7 = [CNMenuData new];
         data7.title = @"777";
-        data7.offImg = [UIImage imageNamed:@"comment_stroke_28"];
-        data7.onImg = [UIImage imageNamed:@"comment_fill_28"];
+        data7.offImgName = @"comment_stroke_28";
+        data7.onImgName = @"comment_fill_28";
         
         
         _titles = [NSArray arrayWithObjects:data1,data2,data3,data4,data5,data6,data7, nil];

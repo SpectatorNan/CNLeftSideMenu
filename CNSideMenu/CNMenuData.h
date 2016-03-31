@@ -17,10 +17,10 @@
 /**
  *  菜单选中图片
  */
-@property (nonatomic, strong) UIImage *onImg;
+@property (nonatomic, strong) NSString *onImgName;
 /**
  *  菜单未选图片
  */
-@property (nonatomic, strong) UIImage *offImg;
+@property (nonatomic, strong) NSString *offImgName;
 
 @end
