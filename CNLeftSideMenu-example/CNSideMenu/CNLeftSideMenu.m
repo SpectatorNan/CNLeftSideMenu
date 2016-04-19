@@ -98,7 +98,9 @@ static NSString *contentCellID = @"contentCell";
 
 
 - (void)menu:(CNLeftMenuView*)menu didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
+    if ([self.delegate respondsToSelector:@selector(menu:didSelectMenuRowAtIndexPath:)]) {
     [self.delegate menu:self didSelectMenuRowAtIndexPath:indexPath];
+    }
 }
 
 
@@ -117,9 +119,9 @@ static NSString *contentCellID = @"contentCell";
 
 
 - (void)didSelectedItemsAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if ([self.delegate respondsToSelector:@selector(collectionContentView:didSelectContentItemAtIndexPath:)]){
     [self.delegate collectionContentView:self.collectionContentView didSelectContentItemAtIndexPath:indexPath];
-    
+    }
 
 }
 

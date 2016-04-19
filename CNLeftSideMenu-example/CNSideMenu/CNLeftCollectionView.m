@@ -149,7 +149,10 @@ static NSString *headerSectionID = @"ReusableHeaderView";
 // UICollectionViewDelegate
 // 选中回调
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self.delegate didSelectedItemsAtIndexPath:indexPath];
+    if ([self.delegate respondsToSelector:@selector(didSelectedItemsAtIndexPath:)]) {
+        [self.delegate didSelectedItemsAtIndexPath:indexPath];
+    }
+    
     
 }
 
