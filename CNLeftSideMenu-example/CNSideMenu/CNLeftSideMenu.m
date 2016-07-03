@@ -93,7 +93,12 @@ static NSString *contentCellID = @"contentCell";
     [self addSubview:menuView];
 }
 
-
+- (NSIndexPath *)rowOfDefaultSelected {
+    if (self.menuIndex) {
+    return self.menuIndex;
+    }
+    return [NSIndexPath indexPathForRow:0 inSection:0];
+}
 
 
 

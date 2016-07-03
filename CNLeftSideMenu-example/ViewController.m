@@ -121,7 +121,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.index = [NSIndexPath indexPathForRow:0 inSection:0];
+    self.index = [NSIndexPath indexPathForRow:2 inSection:0];
     self.view.backgroundColor = [UIColor lightGrayColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
