@@ -25,6 +25,8 @@
 @property (nonatomic, strong) NSArray *content2;
 @property (nonatomic, strong) NSArray *content3;
 
+@property (nonatomic, strong) CNLeftSideMenu *menu;
+@property (nonatomic, assign) NSUInteger row;
 @end
 
 @implementation ViewController
@@ -121,23 +123,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.index = [NSIndexPath indexPathForRow:2 inSection:0];
+    self.row = 0;
+//    self.index = [NSIndexPath indexPathForRow:2 inSection:0];
     self.view.backgroundColor = [UIColor lightGrayColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     /**
      创建菜单视图
      */
-    CNLeftSideMenu *menu = [[CNLeftSideMenu alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height)];
+    CNLeftSideMenu *menu = [[CNLeftSideMenu alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-160)];
     menu.delegate = self;
-    
+    self.menu = menu;
     
 
     [menu createMenuWithMenusData:self.titles contentsData:self.content1 defaultIndex:self.index andMenuViewStyle:CNLeftMenuStyleImageAndText];
     [self.view addSubview: menu];
     
     
+    CGFloat maxHeight = CGRectGetMaxY(menu.frame);
+    
+    UIButton *one = [[UIButton alloc] initWithFrame:CGRectMake(10, maxHeight+5, 50, 30)];
+    [self.view addSubview:one];
+    one.backgroundColor = [UIColor redColor];
+    [one addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+    
 }
+
+- (void)buttonClick {
+    self.row++;
+    self.menu.selectedMenuIndex = [NSIndexPath indexPathForRow:self.row inSection:0];
+}
+
 /**
  *  CNLeftSideMenuDelegate
  *

@@ -47,6 +47,7 @@
 
 
 - (void)collectionContentView:(CNLeftCollectionView*)collectionView didSelectContentItemAtIndexPath:(NSIndexPath*)indexPath;
+
 @end
 
 
@@ -61,7 +62,7 @@
 /** collection 刷新对象 */
 @property (nonatomic, strong) UICollectionView *collectionRefreshView;
 
-
+@property (nonatomic, strong) NSIndexPath *selectedMenuIndex;
 /** 刷新数据 */
 - (void)reloadData;
 /**

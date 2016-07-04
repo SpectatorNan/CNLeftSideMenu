@@ -21,7 +21,7 @@
 
 @interface CNLeftSideMenu ()<CNLeftMenuDataSource, CNLeftMenuDelegate, CNLeftCollectionViewDataSource,CNLeftCollectionViewDelegate>
 
-@property (nonatomic, strong) UITableView *menuTable;
+@property (nonatomic, strong) CNLeftMenuView *menuTable;
 
 @property (nonatomic, strong) NSIndexPath *menuIndex;
 
@@ -40,7 +40,11 @@ static NSString *contentCellID = @"contentCell";
     return self.titles.count;
 }
 
-
+- (void)setSelectedMenuIndex:(NSIndexPath *)selectedMenuIndex {
+    _selectedMenuIndex = selectedMenuIndex;
+    
+    self.menuTable.selectedIndex = selectedMenuIndex;
+}
 
 - (void)reloadData {
     
@@ -83,7 +87,7 @@ static NSString *contentCellID = @"contentCell";
 - (void)createMenuViewWithStyle:(CNLeftMenuStyle)menuStyle {
     
     CNLeftMenuView *menuView = [CNLeftMenuView createMenuViewWithStyle:menuStyle frame:CGRectMake(0, 0, self.menuWidth, self.bounds.size.height)];
-
+    self.menuTable = menuView;
    
     menuView.dataSource = self;
     menuView.delegate = self; 

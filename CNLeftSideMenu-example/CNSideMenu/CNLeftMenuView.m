@@ -23,13 +23,21 @@
 
 @property (nonatomic,assign) CGFloat  width;
 
+@property (nonatomic, strong) UITableView *leftMenu;
+@property (nonatomic, assign) NSInteger count;
 @end
 
 
 
 @implementation CNLeftMenuView
 
+- (void)setSelectedIndex:(NSIndexPath *)selectedIndex {
+    _selectedIndex = selectedIndex;
+    
+    [self tableView:self.leftMenu didSelectRowAtIndexPath:selectedIndex];
 
+    
+}
 
 
 + (instancetype)createMenuViewWithStyle:(CNLeftMenuStyle)menuStyle frame:(CGRect)frame{
@@ -46,7 +54,7 @@
     
     
     self.menuStyle = menuStyle;
-    
+    self.count = 1;
 
     self.width = self.bounds.size.width;
 
@@ -55,7 +63,7 @@
     leftMenu.dataSource = self;
     leftMenu.delegate = self;
     leftMenu.bounces = NO;
-
+    self.leftMenu = leftMenu;
 
     leftMenu.backgroundColor = [UIColor whiteColor];
     if (self.menuDatas.count > 0 ){
@@ -105,6 +113,7 @@
     
     CNLeftMenuCell *cell;
     CNMenuData *data = self.menuDatas[indexPath.row];
+    self.selectedIndex = self.menuIndexPath;
     if (self.menuStyle == CNLeftMenuStyleImageAndText) {
         cell = [CNLeftMenuCell ShowImageAndTextInMenuView:tableView withWidth:self.width];
         
@@ -159,10 +168,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (self.count == 1) {
+        
     CNMenuData *newData = self.menuDatas[indexPath.row];
     CNMenuData *oldData = self.menuDatas[self.menuIndexPath.row];
     if (self.menuStyle == CNLeftMenuStyleImageAndText) {
     if (indexPath != self.menuIndexPath) {
+        self.count = 2;
         CNLeftMenuCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
         newCell.titleL.textColor = SelectColor;
         newCell.titleImgV.image = [UIImage imageNamed: newData.onImgName];
@@ -175,6 +187,7 @@
     }
     } else if (self.menuStyle == CNLeftMenuStyleOnlyImage) {
         if (indexPath != self.menuIndexPath) {
+            self.count = 2;
             CNLeftMenuCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
             
             newCell.titleImgV.image = [UIImage imageNamed: newData.onImgName];
@@ -187,6 +200,7 @@
         }
     } else if (self.menuStyle == CNLeftMenuStyleOnlyText) {
         if (indexPath != self.menuIndexPath) {
+            self.count = 2;
             CNLeftMenuCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
             newCell.titleL.textColor = SelectColor;
            
@@ -199,11 +213,57 @@
         }
     }
     
+    } else if (self.count == 2)
+    
+    {
+        
+        CNMenuData *newData = self.menuDatas[indexPath.row];
+        CNMenuData *oldData = self.menuDatas[self.menuIndexPath.row];
+        
+        if (self.menuStyle == CNLeftMenuStyleImageAndText) {
+     
+                CNLeftMenuCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
+                newCell.titleL.textColor = SelectColor;
+                newCell.titleImgV.image = [UIImage imageNamed: newData.onImgName];
+                
+                CNLeftMenuCell *oldCell = [tableView cellForRowAtIndexPath: self.menuIndexPath];
+                oldCell.titleL.textColor = unSelectColor;
+                oldCell.titleImgV.image = [UIImage imageNamed: oldData.offImgName];
+                
+                self.menuIndexPath = indexPath;
+            
+        } else if (self.menuStyle == CNLeftMenuStyleOnlyImage) {
+ 
+                CNLeftMenuCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
+                
+                newCell.titleImgV.image = [UIImage imageNamed: newData.onImgName];
+                
+                CNLeftMenuCell *oldCell = [tableView cellForRowAtIndexPath: self.menuIndexPath];
+                
+                oldCell.titleImgV.image = [UIImage imageNamed: oldData.offImgName];
+                
+                self.menuIndexPath = indexPath;
+            
+        } else if (self.menuStyle == CNLeftMenuStyleOnlyText) {
+               
+                CNLeftMenuCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
+                newCell.titleL.textColor = SelectColor;
+                
+                
+                CNLeftMenuCell *oldCell = [tableView cellForRowAtIndexPath: self.menuIndexPath];
+                oldCell.titleL.textColor = unSelectColor;
+                
+                
+                self.menuIndexPath = indexPath;
+            
+
+    }
+    }
 //    NSLog(@"select left menu at index: %ld with name is %@", indexPath.row, newData.title);
     if ([self.delegate respondsToSelector:@selector(menu:didSelectRowAtIndexPath:)]) {
         [self.delegate menu:self didSelectRowAtIndexPath:indexPath];
     }
     
-}
 
+}
 @end

@@ -78,7 +78,7 @@ typedef NS_ENUM(NSInteger, CNLeftMenuStyle) {
 @property (nonatomic, weak) id<CNLeftMenuDelegate>  delegate;
 @property (nonatomic, weak) id<CNLeftMenuDataSource>  dataSource;
 
-
+@property (nonatomic, strong) NSIndexPath *selectedIndex;
 @property (nonatomic,assign)  CNLeftMenuStyle  menuStyle;
 @property (nonatomic, strong) NSArray *menuDatas;
 
